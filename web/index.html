@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8faf9">
+  <meta name="description" content="你的 AI 学习工作台，集中管理深度学习、Agent、论文与开源项目。">
+  <title>LearnNest · 学习工作台</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <script defer src="/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳转到内容</a>
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#overview"><img src="/favicon.svg" alt=""><span>LearnNest<small>让好奇，持续发生</small></span></a>
+    <div class="workspace"><span class="workspace-icon">L</span><div>我的学习空间<small>PERSONAL WORKSPACE</small></div><span class="local-dot" title="本地空间"></span></div>
+    <div class="nav-label">工作台</div>
+    <nav id="primary-nav" aria-label="主导航"></nav>
+    <div class="nav-label source-label">我的订阅 <button class="icon-button" data-action="add-source" aria-label="添加订阅源">＋</button></div>
+    <nav id="source-nav" aria-label="订阅源"></nav>
+    <div class="sidebar-bottom"><div class="local-info"><span class="local-dot"></span>本地存储 · 由你掌控</div><button class="nav-item" data-view="settings" id="settings-nav"></button><div class="profile"><span class="avatar">我</span><div>终身学习者<small>每天进步一点点</small></div><span class="profile-mark">✦</span></div></div>
+  </aside>
+  <div class="app-shell">
+    <header class="topbar"><div class="breadcrumb"><button class="icon-button mobile-menu" data-action="menu" aria-label="打开导航">☰</button><span>我的空间</span><span class="crumb-slash">/</span><strong id="breadcrumb-title">学习概览</strong></div><div class="header-actions"><label class="search-box"><span id="search-icon"></span><input id="global-search" placeholder="搜索资源、文章、项目…" aria-label="搜索资源、文章、项目"><kbd>/</kbd></label><button class="icon-button" id="inbox-button" data-view="updates" aria-label="查看订阅更新"></button><span class="avatar small">我</span></div></header>
+    <main id="main" tabindex="-1"><div class="loading-state">正在打开你的学习空间…</div></main>
+    <footer class="page-footer"><span>保持好奇，慢慢来。</span><span>LearnNest <span class="footer-dot">·</span> 为自主学习而生</span></footer>
+  </div>
+  <dialog id="resource-dialog" class="modal"><form id="resource-form"><div class="modal-heading"><div><span class="eyebrow">BUILD YOUR LIBRARY</span><h2>添加学习资源</h2></div><button type="button" class="icon-button close-dialog" aria-label="关闭">×</button></div><label>资源名称<input name="title" placeholder="例如：我的 PyTorch 实战课程" required maxlength="200"></label><label>网站地址<input name="url" type="url" placeholder="https://…" required maxlength="2000"></label><div class="form-row"><label>学习方向<select name="category"><option>深度学习</option><option>Agent</option><option>大模型</option><option>机器学习</option><option>开发工具</option></select></label><label>资源类型<select name="type"><option>课程</option><option>文档</option><option>实战</option><option>工具</option><option>项目</option></select></label></div><label>一句话介绍<textarea name="description" rows="3" placeholder="为什么想学这个？" maxlength="1800"></textarea></label><p class="form-error" role="alert"></p><div class="modal-actions"><button type="button" class="button secondary close-dialog">取消</button><button type="submit" class="button primary">添加到资源库</button></div></form></dialog>
+  <dialog id="source-dialog" class="modal"><form id="source-form"><div class="modal-heading"><div><span class="eyebrow">FOLLOW WHAT MATTERS</span><h2>连接新的信息源</h2></div><button type="button" class="icon-button close-dialog" aria-label="关闭">×</button></div><p class="modal-description">订阅网站的 RSS / Atom，或输入 GitHub 仓库地址关注版本发布。</p><label>订阅名称<input name="name" placeholder="例如：我关注的 Agent 项目" required maxlength="200"></label><label>RSS / Atom 或 GitHub 仓库地址<input name="url" type="url" placeholder="https://github.com/owner/repo" required maxlength="2000"></label><label>内容分类<select name="kind"><option value="news">技术资讯</option><option value="papers">论文研究</option><option value="github">GitHub 动态</option></select></label><p class="field-help">普通网站请填写订阅链接。GitHub 仓库将自动转换为 Releases 订阅。</p><p class="form-error" role="alert"></p><div class="modal-actions"><button type="button" class="button secondary close-dialog">取消</button><button type="submit" class="button primary">连接订阅源</button></div></form></dialog>
+  <dialog id="reader-dialog" class="modal reader-modal"><div id="reader-content"></div></dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <div id="mobile-shade" data-action="menu"></div>
+</body>
+</html>
